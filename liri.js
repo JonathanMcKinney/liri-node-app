@@ -6,11 +6,10 @@ var moment = require('moment');
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 var action = process.argv[2];
-var search = process.argv.slice(3);
 
 var command = {
     'concert-this': function () {
-        search = search.join(" ");
+        var search = process.argv.slice(3).join(" ");
         var queryUrl = "https://rest.bandsintown.com/artists/" + search + "/events?app_id=codingbootcamp";
 
         console.log(queryUrl);
@@ -33,6 +32,7 @@ var command = {
             });
     },
     'spotify-this-song': function () {
+        var search = process.argv.slice(3);
         spotify.search({ type: 'track', query: search }, function (err, data) {
             if (err) {
                 return console.log('Error occurred: ' + err);
@@ -52,15 +52,12 @@ var command = {
         });
     },
     'movie-this': function(){
-        search = search.join("+");
+        var search = process.argv.slice(3).join("+");
 
         if (!process.argv[3]) {
 
             axios.get("http://www.omdbapi.com/?t=mr+nobody&apikey=trilogy")
             .then(function(response){
-                console.log("If you haven't seen 'Mr. Nobody,' then you should.");
-                console.log("It's on Netflix!");
-                console.log("-----------------");
                 console.log("Title: " + response.data.Title);
                 console.log("Released: " + response.data.Year);
                 console.log("IMDB rating: " + response.data.Ratings[0].Value);
@@ -99,10 +96,8 @@ var command = {
               }
             data = data.split(",");
             action = data[0];
-            search = data[1].toString(); 
-            console.log(search);
-            console.log(action);
-            // return search && command[action]();
+            var search = data[1].toString();
+            command[action]();       
         })
     }
 }
