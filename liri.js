@@ -58,6 +58,9 @@ var command = {
 
             axios.get("http://www.omdbapi.com/?t=mr+nobody&apikey=trilogy")
             .then(function(response){
+                console.log("Have you seen Mr. Nobody? You should!");
+                console.log("It's on Netflix!");
+                console.log(" ");
                 console.log("Title: " + response.data.Title);
                 console.log("Released: " + response.data.Year);
                 console.log("IMDB rating: " + response.data.Ratings[0].Value);

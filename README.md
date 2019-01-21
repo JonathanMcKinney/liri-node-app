@@ -2,7 +2,7 @@
 
 ## About
 
-LIRI is  a command line node app that takes in parameters and returns data back to the console.  Currently LIRI takes in four methods:
+LIRI is  a command line node app that takes in parameters and returns data back to the console.  There are .gif files included to show how LIRI works.  Currently LIRI takes in four methods:
 1. 'concert-this'
     * This reaches out to the BandsInTown API and searches by artist for upcoming concerts.
     * If there are upcoming shows, a list of results is returned in the following format:
