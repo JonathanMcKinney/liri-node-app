@@ -6,10 +6,11 @@ var moment = require('moment');
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 var action = process.argv[2];
+var search = process.argv.slice(3);
 
 var command = {
     'concert-this': function () {
-        var search = process.argv.slice(3).join(" ");
+        search;
         var queryUrl = "https://rest.bandsintown.com/artists/" + search + "/events?app_id=codingbootcamp";
 
         console.log(queryUrl);
@@ -32,7 +33,7 @@ var command = {
             });
     },
     'spotify-this-song': function () {
-        var search = process.argv.slice(3);
+        search;
         spotify.search({ type: 'track', query: search }, function (err, data) {
             if (err) {
                 return console.log('Error occurred: ' + err);
@@ -52,7 +53,7 @@ var command = {
         });
     },
     'movie-this': function(){
-        var search = process.argv.slice(3).join("+");
+        search = search.join("+");
 
         if (!process.argv[3]) {
 
@@ -99,8 +100,10 @@ var command = {
               }
             data = data.split(",");
             action = data[0];
-            var search = data[1].toString();
-            command[action]();       
+            search = data[1].replace(/"/g,"");
+            console.log(action);
+            console.log(search);
+            command[action](search);       
         })
     }
 }
