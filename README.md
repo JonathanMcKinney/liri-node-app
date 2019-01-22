@@ -32,6 +32,6 @@ LIRI is  a command line node app that takes in parameters and returns data back 
 
 The command line syntax for a search is as follows:
 
-node  liri.js  method  inquiry
+node  liri.js  'method'  inquiry
 
 for example:  node liri.js 'spotify-this-song' walking on sunshine
