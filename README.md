@@ -38,8 +38,5 @@ for example:  node liri.js 'spotify-this-song' walking on sunshine
 
 ## Demo
 
-![Spotfiy Demo Gif](/liri-spotify.gif)
-
-![Concert Demo Gif](/liri-concert.gif)
-
-![Movie Demo Gif](/liri-movie.gif)
+![Spotfiy Demo Gif](/)
+Format: ![Alt Text](url)

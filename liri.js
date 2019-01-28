@@ -10,7 +10,7 @@ var search = process.argv.slice(3);
 
 var command = {
     'concert-this': function () {
-        search;
+        search = search.join("");
         var queryUrl = "https://rest.bandsintown.com/artists/" + search + "/events?app_id=codingbootcamp";
 
         console.log(queryUrl);
